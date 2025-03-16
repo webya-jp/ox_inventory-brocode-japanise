@@ -1,9 +1,28 @@
+// font familiy web\src\fonts\LINESeedJP_OTF_Th.woff2
+@font-face {
+  font-family: 'LINESeedJP';
+  src: url('fonts/LINESeedJP_OTF_Th.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LINESeedJP';
+  src: url('fonts/LINESeedJP_OTF_Rg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LINESeedJP';
+  src: url('fonts/LINESeedJP_OTF_Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 $mainColor: #22232c;
 $textColor: #c1c2c5;
-$mainFont: 'Smooch Sans';
-
+$mainFont: 'Smooch Sans', 'LINESeedJP', sans-serif;
 $secondaryColor: rgba(9, 9, 9, 0.226);
-$secondaryColorHighlight: #33343F;
+$secondaryColorHighlight: #33343f;
 $secondaryColorLight: rgba(0, 0, 0, 0.5);
 $secondaryColorDark: rgba(12, 12, 12, 0.8);
 
@@ -15,7 +34,8 @@ $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gr
 
 body {
   margin: 0;
-  font-family: 'Smooch Sans', sans-serif;
+  font-family: 'Smooch Sans', 'LINESeedJP', sans-serif;
+  font-weight: 100;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -70,13 +90,13 @@ input[type='number']::-webkit-outer-spin-button {
   align-items: center;
 }
 
-.context-menu-item  {
+.context-menu-item {
   padding: 0.417vw;
   border-radius: 0.208vw;
   background-color: transparent;
   outline: none;
   border: none;
-  font-family: 'Smooch Sans', sans-serif;
+  font-family: 'Smooch Sans', 'LINESeedJP', sans-serif;
   font-size: 1vw;
   color: white;
   opacity: 0.9;
@@ -97,7 +117,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .tooltip-description {
-  padding-top: 0.260vw;
+  padding-top: 0.26vw;
 }
 
 .tooltip-markdown > p {
@@ -128,7 +148,12 @@ button:active {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: linear-gradient(132deg, rgba(15, 13, 59, 0.72) 0%, rgba(15,13,59,0.12172619047619047) 50%, rgba(15,13,59,0.72) 100%);
+  background-image: linear-gradient(
+    132deg,
+    rgba(15, 13, 59, 0.72) 0%,
+    rgba(15, 13, 59, 0.12172619047619047) 50%,
+    rgba(15, 13, 59, 0.72) 100%
+  );
   gap: 1.742vw;
 }
 
@@ -141,7 +166,7 @@ button:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 21vh;
+    top: -28vh;
     left: 10vw;
   }
 
@@ -209,8 +234,8 @@ button:active {
 }
 
 .useful-controls-dialog-close {
-  width: 20.260vw;
-  height: 20.260vw;
+  width: 20.26vw;
+  height: 20.26vw;
   padding: 0.313vw;
   display: flex;
   justify-content: center;
@@ -237,8 +262,8 @@ button:active {
 
 .useful-controls-button {
   position: absolute !important;
-  bottom: 20.260vw;
-  right: 20.260vw;
+  bottom: 20.26vw;
+  right: 20.26vw;
   transition: 200ms !important;
   border: none;
   color: white;
@@ -265,7 +290,6 @@ button:active {
 }
 
 // Dialog is used fro useful controls window
-
 
 // inventory grids
 .inventory-grid-wrapper {
@@ -334,7 +358,7 @@ button:active {
   font-weight: 500;
   text-align: left;
   font-size: 0.9vw;
-  text-shadow: 0.052vw 0.104vw 0.521vw #ffffff4d,-0.104vw 0.052vw 0.521vw #ffffff37;
+  text-shadow: 0.052vw 0.104vw 0.521vw #ffffff4d, -0.104vw 0.052vw 0.521vw #ffffff37;
   opacity: 0.9;
   display: flex;
   flex-direction: row;
@@ -374,7 +398,7 @@ button:active {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  font-weight: 600 ;
+  font-weight: 600;
   opacity: 0.8;
 }
 
@@ -412,7 +436,6 @@ button:active {
   }
 }
 
-
 .tooltip-wrapper {
   pointer-events: none;
   display: flex;
@@ -422,9 +445,9 @@ button:active {
   flex-direction: column;
   min-width: 10.417vw;
   color: $textColor;
-  
+
   border-radius: 0.208vw;
-  border-color: rgba(255,255,255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
   border-style: inset;
   border-width: 0.052vw;
   p {
@@ -441,11 +464,14 @@ button:active {
   p {
     font-size: 1.042vw;
     font-weight: 400;
+    flex-basis: 0;
+    flex: 3;
   }
-  aside{
-    margin-left: 6.688vw;
+  aside {
     font-size: 1.042vw;
     font-weight: 500;
+    flex-basis: 0;
+    flex: 1;
   }
 }
 
@@ -463,7 +489,7 @@ button:active {
 }
 
 .tooltip-ingredients {
-  padding-top: 0.260vw;
+  padding-top: 0.26vw;
 }
 
 .tooltip-ingredient {
@@ -473,7 +499,7 @@ button:active {
   img {
     width: 1.458vw;
     height: 1.458vw;
-    padding-right: 0.260vw;
+    padding-right: 0.26vw;
   }
 }
 
@@ -543,7 +569,6 @@ button:active {
 }
 
 .weight-bar {
-  
   height: 3.5vh;
   margin-top: -0.5vh;
   margin-left: 0.2vh;
@@ -569,7 +594,7 @@ button:active {
 }
 
 .transition-slide-up-enter {
-  transform: translateY(10.417vw)
+  transform: translateY(10.417vw);
 }
 
 .transition-slide-up-enter-active {

@@ -21,7 +21,7 @@ debugData([
         id: 'test',
         type: 'player',
         slots: 50,
-        label: 'Kishan Sharma',
+        label: '日本語 太郎',
         weight: 3000,
         maxWeight: 5000,
         items: [
@@ -51,6 +51,26 @@ debugData([
           {
             slot: 6,
             name: 'backwoods',
+            weight: 100,
+            count: 1,
+            metadata: {
+              label: 'Russian Cream',
+              imageurl: 'https://i.imgur.com/2xHhTTz.png',
+            },
+          },
+          {
+            slot: 7,
+            name: 'ツールキット',
+            weight: 100,
+            count: 1,
+            metadata: {
+              label: 'Russian Cream',
+              imageurl: 'https://i.imgur.com/2xHhTTz.png',
+            },
+          },
+          {
+            slot: 8,
+            name: '非常に長い文章の場合どうなるのか気になったので入力してい見ることにしました',
             weight: 100,
             count: 1,
             metadata: {
@@ -111,8 +131,8 @@ const App: React.FC = () => {
     manager.dispatch({ type: 'dnd-core/END_DRAG' });
   });
   useNuiEvent('DamageCall', (data: any) => {
-    dispatch(setDamage(data))
-  })
+    dispatch(setDamage(data));
+  });
 
   return (
     <div className="app-wrapper">
@@ -123,8 +143,8 @@ const App: React.FC = () => {
   );
 };
 
-addEventListener("dragstart", function (event) {
-  event.preventDefault()
-})
+addEventListener('dragstart', function (event) {
+  event.preventDefault();
+});
 
 export default App;

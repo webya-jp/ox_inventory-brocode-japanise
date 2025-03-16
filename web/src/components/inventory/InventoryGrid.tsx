@@ -18,7 +18,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
   const containerRef = useRef(null);
   const { ref, entry } = useIntersection({ threshold: 0.5 });
   const isBusy = useAppSelector((state) => state.inventory.isBusy);
-  const hotInv = inventory.items.slice(0, 5)
+  const hotInv = inventory.items.slice(0, 5);
   React.useEffect(() => {
     if (entry && entry.isIntersecting) {
       setPage((prev) => ++prev);
@@ -64,25 +64,32 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
           >
             {inventory.label}
           </p> */}
-          <div style={inventory.type === "player" ? {
-            writingMode: 'vertical-lr',
-            textOrientation: 'mixed',
-            position: 'absolute',
-            fontSize: '2.5vw',
-            display: 'flex',
-            marginTop: '2vw',
-            marginLeft: '-2.5vw',
-            letterSpacing: '0.1rem',
-          } : {
-
-            position: 'absolute',
-            fontSize: '2vw',
-            display: 'flex',
-            marginTop: `${inventory.maxWeight === undefined ? '-0.8vw' : '-0.2vw'}`,
-            // paddingBottom:  '1vw',// `${inventory.maxWeight === undefined ? '1vw' : '0vw'}`,
-            marginLeft: 0,
-            letterSpacing: '0.05vw',
-          }}>
+          <div
+            style={
+              inventory.type === 'player'
+                ? {
+                    // writingMode: 'vertical-lr',
+                    textOrientation: 'mixed',
+                    position: 'absolute',
+                    fontSize: '2.5vw',
+                    display: 'flex',
+                    marginTop: '2vw',
+                    // marginLeft: '-2.5vw',
+                    letterSpacing: '0.1rem',
+                    transform: 'rotate(90deg)',
+                    transformOrigin: 'left top',
+                  }
+                : {
+                    position: 'absolute',
+                    fontSize: '2vw',
+                    display: 'flex',
+                    marginTop: `${inventory.maxWeight === undefined ? '-0.8vw' : '-0.2vw'}`,
+                    // paddingBottom:  '1vw',// `${inventory.maxWeight === undefined ? '1vw' : '0vw'}`,
+                    marginLeft: 0,
+                    letterSpacing: '0.05vw',
+                  }
+            }
+          >
             <aside>{inventory.label}</aside>
           </div>
           <div className="inventory-grid-header-wrapper">
@@ -98,7 +105,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
         <div className="inventory-grid-container" ref={containerRef}>
           <>
             {inventory.items.slice(0, (page + 1) * PAGE_SIZE).map((item, index) => {
-              if (index < 5 && inventory.type === "player") {
+              if (index < 5 && inventory.type === 'player') {
                 return '';
               }
               return (
@@ -114,27 +121,31 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
             })}
           </>
         </div>
-        <div style={{
-          position: 'absolute',
-          marginTop: '51vh',
-        }}>
-          {inventory.type === 'player' &&
+        <div
+          style={{
+            position: 'absolute',
+            marginTop: '51vh',
+          }}
+        >
+          {inventory.type === 'player' && (
             <div style={{ marginBottom: '0.5vw' }}>
               <div style={{ fontSize: '2vw' }}>Hotbar</div>
               <Divider />
             </div>
-          }
+          )}
           <div className="inventory-grid-container2" ref={containerRef}>
             <>
-              {inventory.type === 'player' && hotInv.map((item, index) => (
-                <InventorySlot
-                  key={`${inventory.type}-${inventory.id}-${item.slot}`}
-                  item={item}
-                  ref={index === (page + 1) * PAGE_SIZE - 1 ? ref : null}
-                  inventoryType={inventory.type}
-                  inventoryGroups={inventory.groups}
-                  inventoryId={inventory.id}
-                />))}
+              {inventory.type === 'player' &&
+                hotInv.map((item, index) => (
+                  <InventorySlot
+                    key={`${inventory.type}-${inventory.id}-${item.slot}`}
+                    item={item}
+                    ref={index === (page + 1) * PAGE_SIZE - 1 ? ref : null}
+                    inventoryType={inventory.type}
+                    inventoryGroups={inventory.groups}
+                    inventoryId={inventory.id}
+                  />
+                ))}
             </>
           </div>
         </div>

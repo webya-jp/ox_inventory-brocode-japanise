@@ -1,9 +1,13 @@
+このスクリプトは日本語に変換しただけのとてもシンプルな ox_inventory-brocode です。
+
 <h1 align="center"><a href="https://discord.gg/brocode" target="_blank" rel="noopener noreferrer">ox_inventory customized by Bro Code</a></h1>
 
 This inventory is a fork from the original ox_inventory. This fork is customized by Bro Code and we will try our best to maintain it. We have added features like Body Stats System and Completely changed the Design of the Inventory. Rest of the features are same as the original ox_inventory. It has a dependency of **BC_Wounding** for the Body Stats System. You can find the **BC_Wounding** resource [here](https://brocode.tebex.io/package/6121826)
 
 ## Preview
-*(Video Preview Soon)*
+
+_(Video Preview Soon)_
+
 <div align='center'><img src='https://cdn.discordapp.com/attachments/1188413681655095316/1197824528739487754/image.png'/></div>
 
 #
@@ -73,7 +77,6 @@ Logging is built-in using ox_lib's [logger](https://overextended.dev/ox_lib/Modu
 <table><tr><td><h3 align='center'>License</h3></tr></td>
 <tr><td>
 Ox Inventory
-
 
 Copyright © 2023 Overextended (https://github.com/overextended)
 
